@@ -17,3 +17,13 @@ func HexToB64(s string) (string, error){
 	b64 = base64.StdEncoding.EncodeToString(hexBytes)
 	return b64, nil
 }
+
+// MustDecodeHex will decode a given hex string or panic
+func MustDecodeHex(s string) []byte {
+	hexBytes, err := hex.DecodeString(s)
+	if err != nil {
+		panic(err)
+	}
+
+	return hexBytes
+}
